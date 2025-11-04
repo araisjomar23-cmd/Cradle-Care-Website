@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cradle Care Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to bottom, #0d8fa7 40%, #d89cc5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 360px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 30px;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #F08298;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      color: #fff;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+    }
+
+    .login-btn {
+      width: 100%;
+      background: #42b2d1;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background: #2a94b0;
+    }
+
+    .forgot {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #fff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .social-login {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-login i {
+      font-size: 1.4rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .social-login i:hover {
+      color: #ffd8e0;
+    }
+
+    .register {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .register a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <h1><span>CRADLE</span> CARE</h1>
+    </div>
+
+    <form>
+      <div class="input-group">
+        <input type="text" placeholder="Enter your username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Enter your password" required>
+      </div>
+      <button class="login-btn">Login</button>
+      <div class="forgot">Forgot password?</div>
+    </form>
+
+    <div class="social-login">
+      <i class="fa-brands fa-google"></i>
+      <i class="fa-brands fa-facebook"></i>
+    </div>
+
+    <div class="register">
+      Register now
+    </div>
+  </div>
+</body>
+</html>
