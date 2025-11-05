@@ -144,11 +144,6 @@ bookSubmit.addEventListener("click", () => {
   const date = document.getElementById("booking-date").value;
   const time = document.getElementById("booking-time").value;
 
-  if (!date || !time) {
-    alert("Please select a date and time before confirming.");
-    return;
-  }
-
   bookingModal.classList.remove("open");
   bookingSuccess.classList.add("open");
 });
@@ -161,6 +156,7 @@ modalCloses.forEach(btn => {
   });
 });
 
+  
 // Hero image slideshow
 (() => {
   const slides = $$('.hero-card .slide');
@@ -186,3 +182,64 @@ modalCloses.forEach(btn => {
   window.addEventListener('keydown', handleKey);
   window.addEventListener('mousedown', handleMouse);
 })();
+
+// ===== Scroll-triggered Fade + Slide Up Animation =====
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    "section, .trust-authority-section"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible-section");
+        } else {
+          entry.target.classList.remove("visible-section");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("hidden-section");
+    observer.observe(section);
+  });
+});
+
+const openButton = document.getElementById('openProModal');
+  const modalBackdrop = document.getElementById('downloadModalBackdrop');
+  const closeModalButton = document.getElementById('closeDownloadModal');
+
+  // Function to show the modal
+  function openModal() {
+    modalBackdrop.classList.add('open');
+  }
+
+  // Function to hide the modal
+  function closeModal() {
+    modalBackdrop.classList.remove('open');
+  }
+
+  // Event Listeners
+  if (openButton) {
+    openButton.addEventListener('click', function(e) {
+      e.preventDefault(); // Stop the link from navigating anywhere
+      openModal();
+    });
+  }
+
+  if (closeModalButton) {
+    closeModalButton.addEventListener('click', closeModal);
+  }
+
+  // Close modal if user clicks outside the modal content
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', function(e) {
+      // Check if the click occurred on the backdrop itself (not the modal content)
+      if (e.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+  }

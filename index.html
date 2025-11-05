@@ -10,10 +10,11 @@
 </head>
 
 <body>
+
   <!-- Header/Navigation-->
   <header class="header">
     <div class="container nav-inner">
-      <a class="logo" href="#">
+      <a class="logo" href="#top">
         <div class="logo-mark" aria-hidden="true">
           <img src="Logo\logo.jpg" alt="Cradle Care logo" width="40" height="40">
         </div>
@@ -39,7 +40,7 @@
   </header>
 
   <!-- main -->
-  <main>
+  <main id="top">
 
     <!-- hero section-->
     <section class="hero" aria-labelledby="hero-title">
@@ -218,7 +219,7 @@
             <li><i class="check-icon">✓</i>Personalized plans</li>
             <li><i class="check-icon">✓</i>Priority advisor bookings</li>
           </ul>
-          <a class="btn btn-primary" href="#contact">Choose Pro</a>
+          <a class="btn btn-primary" id="openProModal" href="#contact">Choose Pro</a>
         </div>
 
         <div class="pricing-card">
@@ -335,6 +336,9 @@
     </div>
 </section>
 
+<!--Modals-->
+
+
   <!-- Message Sent Popup -->
   <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
@@ -350,11 +354,21 @@
 <div id="booking-modal" class="modal-backdrop">
   <div class="modal booking-modal">
     <h4>Confirm Your Booking</h4>
+
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" class="input" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" class="input" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" class="input" required>
+
     <label for="booking-date">Select Date:</label>
-    <input type="date" id="booking-date" class="input">
+    <input type="date" id="booking-date" class="input" required>
 
     <label for="booking-time">Select Time:</label>
-    <input type="time" id="booking-time" class="input">
+    <input type="time" id="booking-time" class="input" required>
 
     <div style="margin-top: 1rem;">
       <button id="book-submit" class="btn btn-primary">Confirm Booking</button>
@@ -369,6 +383,32 @@
     <h4>Booking Confirmed!</h4>
     <p>Your booking has been successfully scheduled.</p>
     <button class="btn btn-primary modal-close">OK</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="downloadModalBackdrop">
+  <div class="modal" id="downloadModal">
+    <h4 style="color: var(--logo-blue);">Download the Cradle Care App! 📱</h4>
+    <p class="muted">
+      To access the Pro Plan features (₱199/mo), including personalized plans and priority bookings, please download the official Cradle Care application on your mobile device.
+    </p>
+    
+    <div style="margin-top: 1.2rem; text-align: center;">
+      <p style="font-weight: 700; margin-bottom: 0.8rem;">Get the App Now:</p>
+      
+      <div class="btn-row" style="justify-content: center; gap: 1rem;">
+        <a href="https://www.apple.com/ph/app-store/" target="_blank" class="btn btn-primary">
+          App Store
+        </a>
+        <a href="https://play.google.com/store/apps" target="_blank" class="btn btn-outline">
+          Google Play
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align: right; margin-top: 1rem;">
+        <button id="closeDownloadModal" class="btn btn-outline small" style="background: none; border-color: var(--muted); color: var(--muted);">Close</button>
+    </div>
   </div>
 </div>
 

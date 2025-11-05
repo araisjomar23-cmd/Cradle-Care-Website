@@ -1,4 +1,4 @@
- /* Variables */
+/* Variables */
 :root{
   --baby-blue: #A5D8FF;
   --soft-lavender: #C8B6FF;
@@ -25,6 +25,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   background: linear-gradient(to bottom, #007b91 0%, #cf93b8 100%);
@@ -41,15 +45,15 @@ body {
   padding:0 1.25rem}
 
 .email-link {
-  color: #A5D8FF;      
+  color: #A5D8FF; 	 	
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease; 
 }
 
 .email-link:hover {
-  color: #C8B6FF;         
-  text-decoration: underline;  
+  color: #C8B6FF; 	 	 	
+  text-decoration: underline; 	
 }
 
 a {
@@ -199,13 +203,13 @@ a {
   cursor: pointer;
   border: none;
   font-size: 1.05rem;
+  transition: transform 0.16s;
 }
 
 .btn-primary {
   background: linear-gradient(90deg, var(--baby-blue), var(--soft-lavender));
   color: var(--slate);
   box-shadow: 0 10px 28px rgba(10, 50, 80, 0.07);
-  transition: transform 0.16s;
 }
 
 .btn-primary:hover {
@@ -581,6 +585,7 @@ select {
   border-radius: 10px;
   border: 1px solid rgba(40, 40, 40, 0.08);
   font-size: 1rem;
+  width: 100%; /* Ensure input/textarea take up full width of container */
 }
 
 .input:focus,
@@ -597,6 +602,73 @@ select:focus {
   font-size: 0.95rem;
 }
 
+/* --- NEW BOOKING MODAL STYLES --- */
+.booking-modal .form-field-group {
+    margin-bottom: 1rem;
+}
+
+.booking-modal .form-grid {
+    /* Single column on mobile */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Two columns on desktop/tablet */
+@media (min-width: 500px) {
+    .booking-modal .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.booking-modal label {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0.35rem; /* Space below label */
+    font-weight: 600;
+    color: var(--slate);
+    font-size: 0.95rem;
+}
+
+.booking-modal textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal-footer {
+    /* Alignment for buttons at the bottom */
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--cool-gray);
+    margin-top: 1.5rem;
+}
+
+/* Custom style for the success message content */
+.success-content {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.success-icon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 1rem;
+    color: var(--mint-green); /* Use a bright color for success */
+}
+
+.success-content .modal-footer {
+    justify-content: center;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+/* --- END NEW STYLES --- */
+
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -608,13 +680,6 @@ select:focus {
   pointer-events: none;
   transition: opacity 0.22s;
   z-index: 2000;
-}
-
-.booking-modal label {
-  display: block;
-  margin-top: 0.75rem;
-  font-weight: 600;
-  color: var(--slate);
 }
 
 .modal-backdrop.open {
@@ -632,65 +697,16 @@ select:focus {
 }
 
 .modal h4 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--slate);
 }
 
 .footer {
   text-align: center;
   padding: 2rem 0;
   color: var(--muted);
-}
-
-.trust-authority-section {
-    padding: 60px 20px;
-    background-color: #3f51b5; /* Use the Deep Purple primary color */
-    text-align: center;
-}
-.trust-authority-section .container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.section-title.white-text {
-    color: var(--color-text-light);
-    margin-bottom: 40px;
-}
-
-.trust-authority-section {
-  padding: 70px 20px;
-  background: linear-gradient(
-    135deg,
-    var(--baby-blue) 0%,
-    var(--mint-green) 50%,
-    var(--soft-lavender) 100%
-  );
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Soft background overlay for depth */
-.trust-authority-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 0;
-}
-
-.trust-authority-section .container {
-  position: relative;
-  z-index: 1;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.section-title.white-text {
-  color: #fff;
-  margin-bottom: 40px;
-  font-size: 2rem;
-  font-weight: 800;
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .trust-authority-section {
@@ -758,6 +774,19 @@ select:focus {
   color: var(--soft-lavender);
 }
 
+/* Scroll Animation Styles */
+.hidden-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .trust-box {
@@ -800,20 +829,29 @@ select:focus {
   }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-}
-
 @media (max-width: 480px) {
-  .hero-title { font-size: 1.8rem; }
-  .btn { padding: 0.6rem 1rem; font-size: 0.9rem; }
-  .feature-grid, .pricing-grid, .advisor-grid {
-    grid-template-columns: 1fr;
-  }
+    /* Font and Button Scaling */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .btn, .nav-cta {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    /* Grid Stacking */
+    .feature-grid, 
+    .pricing-grid, 
+    .advisor-grid,
+    .trust-grid { /* Assuming you have a trust-grid wrapper */
+        grid-template-columns: 1fr;
+    }
+    /* Navigation Adjustments */
+    .nav-links {
+        gap: 0.5rem;
+    }
+    /* CTA Card Stacking */
+    .cta-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
