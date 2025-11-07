@@ -684,12 +684,13 @@ select:focus {
 
 /* Hamburger menu (mobile) */
 .menu-toggle {
-  display: none;
+  display: none; /* hidden on desktop */
   flex-direction: column;
   justify-content: space-between;
-  width: 24px;
-  height: 18px;
+  width: 28px;
+  height: 20px;
   cursor: pointer;
+  z-index: 2000; /* ensure it's on top of other elements */
 }
 
 .menu-toggle span {
@@ -708,21 +709,21 @@ select:focus {
   }
 
   .nav-links {
-    display: none;
+    display: none; /* hide links initially */
+    position: absolute;
+    top: 70px; /* below header */
+    right: 1rem;
+    background: rgba(0,0,0,0.85);
     flex-direction: column;
     gap: 0.8rem;
-    margin-top: 1rem;
-    background: rgba(0,0,0,0.85);
     padding: 1rem;
     border-radius: 10px;
-    position: absolute;
-    right: 1rem;
-    top: 70px;
     width: max-content;
+    z-index: 1500;
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* show when hamburger is clicked */
   }
 }
 
