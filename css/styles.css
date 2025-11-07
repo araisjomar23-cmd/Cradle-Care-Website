@@ -900,3 +900,30 @@ select:focus {
         align-items: flex-start;
     }
 }
+
+.promo-video {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.promo-video h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(10, 50, 80, 0.2);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
