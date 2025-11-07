@@ -901,29 +901,29 @@ select:focus {
     }
 }
 
-.promo-video {
-  padding: 4rem 1rem;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-}
-
 .promo-video h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #fff;
+  text-align: center;
 }
 
 .video-wrapper {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 14px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(10, 50, 80, 0.2);
+  max-width: 800px;
+  margin: 1.5rem auto; /* space above/below */
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(10, 50, 80, 0.2); /* optional shadow to match your site */
 }
 
-.video-wrapper video {
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  border: 0;
 }
